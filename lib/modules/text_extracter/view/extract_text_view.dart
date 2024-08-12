@@ -110,9 +110,16 @@ class ExtractTextView extends StatelessWidget {
                                                   MainAxisAlignment.spaceEvenly,
                                               children: [
                                                 ElevatedButton(
-                                                    onPressed: () =>
-                                                        CardServices.saveCard(
-                                                            extractedData),
+                                                    onPressed: () async {
+                                                      await CardServices
+                                                          .saveCard(
+                                                              extractedData);
+                                                      controller
+                                                          .clearSelectedImage();
+                                                      Fluttertoast.showToast(
+                                                          msg:
+                                                              "Business card Saved");
+                                                    },
                                                     child: const Text(
                                                         "Save Data")),
                                                 ElevatedButton(
