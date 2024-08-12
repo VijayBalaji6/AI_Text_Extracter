@@ -3,6 +3,7 @@ import 'package:ai_text_extracter/modules/text_extracter/text_extracter_controll
 import 'package:ai_text_extracter/modules/text_extracter/view/edit_extracted_text_screen.dart';
 import 'package:ai_text_extracter/services/card_services.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/route_manager.dart';
 
@@ -122,8 +123,13 @@ class ExtractTextView extends StatelessWidget {
                                                     child: const Text(
                                                         "Edit Data")),
                                                 ElevatedButton(
-                                                    onPressed: () => controller
-                                                        .clearSelectedImage(),
+                                                    onPressed: () {
+                                                      controller
+                                                          .clearSelectedImage();
+                                                      Fluttertoast.showToast(
+                                                          msg:
+                                                              "Business card cleared");
+                                                    },
                                                     child: const Text(
                                                         "Clear Data"))
                                               ],

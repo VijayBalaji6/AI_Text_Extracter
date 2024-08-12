@@ -1,6 +1,8 @@
 import 'package:ai_text_extracter/model/bussiness_card.dart';
 import 'package:ai_text_extracter/modules/text_extracter/text_extracter_controller.dart';
+import 'package:ai_text_extracter/services/card_services.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 class EditExtractedTextScreen extends StatelessWidget {
@@ -62,14 +64,17 @@ class EditExtractedTextScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                textExtractorController.saveExtractedCardData(BusinessCard(
+              onPressed: () async {
+                await CardServices.saveCard(BusinessCard(
                     name: _nameController.text,
                     eMail: _emailController.text,
                     phoneNumber: _phoneNumberController.text,
                     address: _addressController.text,
                     website: _webSiteController.text,
                     image: editableBusinessCardData.image));
+                Get.back();
+                await Fluttertoast.showToast(msg: "Business card saved");
+                textExtractorController.clearSelectedImage();
               },
               child: const Text('Save'),
             ),

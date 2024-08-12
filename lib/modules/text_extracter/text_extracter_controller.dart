@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:ai_text_extracter/model/bussiness_card.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_cropper/image_cropper.dart';
@@ -15,6 +16,7 @@ class TextExtractorController extends GetxController {
   void clearSelectedImage() {
     selectedImage = null;
     update();
+    Fluttertoast.showToast(msg: "Image Cleared");
   }
 
   void saveExtractedCardData(BusinessCard extractedData) {}
