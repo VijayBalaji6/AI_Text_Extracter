@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "447940731551",
+    "project_id": "business-card-text-extracter",
+    "storage_bucket": "business-card-text-extracter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447940731551:android:3c33c0f901923eacc3b8aa",
+        "android_client_info": {
+          "package_name": "com.example.ai_text_extracter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhLQqBPn1PHrxt4An85uNkbtpCSENjo4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

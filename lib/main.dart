@@ -1,7 +1,17 @@
-import 'package:ai_text_extracter/home_screen.dart';
+import 'package:ai_text_extracter/modules/home/home_binding.dart';
+import 'package:ai_text_extracter/modules/splash_screen.dart';
+import 'package:ai_text_extracter/routes/app_routes.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -10,13 +20,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter AI Text Extracter',
+    return GetMaterialApp(
+      title: 'Flutter AI Text Extractor',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      getPages: AppPages.pages,
+      initialBinding: HomeBinding(),
+      home: const SplashScreen(),
     );
   }
 }
